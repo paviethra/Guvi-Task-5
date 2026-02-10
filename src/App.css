@@ -1,0 +1,271 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #e1e8ef;
+  color: #333;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* -------- CENTER MENU -------- */
+.nav-center {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-center a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-center a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.nav-center a:hover::after {
+  width: 100%;
+}
+
+/* -------- RIGHT SECTION -------- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search */
+.search-input {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Cart button */
+.cart-btn {
+  position: relative;
+  background: white;
+  color: #764ba2;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4d4f;
+  color: white;
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
+
+  .search-input {
+    display: none;
+  }
+}
+
+/* ---------------- PRODUCT GRID ---------------- */
+.product-grid {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* ---------------- PRODUCT CARD ---------------- */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  height: 140px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.card h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  height: 38px;
+  overflow: hidden;
+}
+
+.card p {
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 12px;
+}
+
+.card button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.card button:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ---------------- MODAL ---------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ---------------- CART ITEMS ---------------- */
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+.cart-item p {
+  font-size: 14px;
+}
+
+.cart-item button {
+  margin-top: 6px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cart-item button:hover {
+  opacity: 0.9;
+}
+
+/* ---------------- CLOSE BUTTON ---------------- */
+.close-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #111;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 600px) {
+  .navbar h2 {
+    font-size: 18px;
+  }
+
+  .product-grid {
+    padding: 15px;
+    gap: 15px;
+  }
+}
